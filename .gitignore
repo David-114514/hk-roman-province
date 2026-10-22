@@ -1,0 +1,39 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Older Godot import cache, and translations generated from CSV
+.import/
+*.translation
+
+# Export settings may contain local paths or signing secrets
+export.cfg
+export_presets.cfg
+
+# Exported builds
+/build/
+/builds/
+/export/
+*.pck
+*.apk
+*.aab
+
+# .NET / Mono, in case the project is converted later
+.mono/
+data_*/
+mono_crash.*.json
+
+# Editors
+.idea/
+.vs/
+.vscode/
+*.csproj
+*.sln
+
+# Windows and temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.tmp
+*~
+*.log

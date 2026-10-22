@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/Ground.gd" id="2_ground"]
+[ext_resource type="Script" path="res://scripts/RoadLayer.gd" id="3_roads"]
+[ext_resource type="Script" path="res://scripts/Preview.gd" id="4_preview"]
+[ext_resource type="Script" path="res://scripts/CityGrid.gd" id="5_grid"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="World"]
+script = ExtResource("2_ground")
+
+[node name="Roads" type="Node2D" parent="World"]
+script = ExtResource("3_roads")
+
+[node name="Buildings" type="Node2D" parent="World"]
+
+[node name="Preview" type="Node2D" parent="World"]
+script = ExtResource("4_preview")
+
+[node name="CityGrid" type="Node" parent="World"]
+script = ExtResource("5_grid")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Root" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLeft" type="MarginContainer" parent="UI/Root"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 520.0
+offset_bottom = 470.0
+
+[node name="Panel" type="PanelContainer" parent="UI/Root/TopLeft"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Root/TopLeft/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "行省狀況"
+
+[node name="MoneyLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "金錢    200"
+
+[node name="PopulationLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "人口    0 / 0"
+
+[node name="FoodLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "食物    0"
+
+[node name="WoodLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "木材    0"
+
+[node name="ToolsLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "工具    0"
+
+[node name="TaxLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "稅收    尚無居民"
+
+[node name="HelpLabel" type="Label" parent="UI/Root/TopLeft/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 0
+text = "建築須以道路連回倉庫，不能重疊。左鍵放置，按住鋪路，右鍵取消。拆除不退還資源。WASD 移動，滾輪縮放，中鍵拖曳。"
+
+[node name="BottomBar" type="PanelContainer" parent="UI/Root"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+grow_horizontal = 2
+
+[node name="Margin" type="MarginContainer" parent="UI/Root/BottomBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="BuildRows" type="VBoxContainer" parent="UI/Root/BottomBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MessageLabel" type="Label" parent="UI/Root"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -310.0
+offset_right = 360.0
+offset_bottom = -266.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
